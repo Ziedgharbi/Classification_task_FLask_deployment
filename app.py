@@ -32,9 +32,7 @@ from annexe_app import data_load, split
 from flask import Flask , request, render_template
 
 
-app=Flask(__name__,template_folder=project_root)
-
-
+app=Flask(__name__,template_folder=project_root,static_folder=project_root+"/test_files")
 
 
 
@@ -62,11 +60,8 @@ def predict():
 
     data_scaled=(data-x_mean)/x_std
 
-    model=load("C:/Users/pc/Nextcloud/Python/Flask/models/Decision_tree_precision.joblib")
-    
-    rs=model.predict([data_scaled])
-    
-    
+   
+ 
     
     l=[]
     for model in models :
@@ -78,24 +73,24 @@ def predict():
     for mod in l :
         model=load(model_path+mod+'.joblib')
         data=np.array(data)
-        rs[mod]= model.predict([data_scaled])
+        rslt= model.predict([data_scaled])
+        if rslt.item() ==0:
+            rsl= "Malignant"
+        if rslt.item() ==1:
+            rsl= "benign "
+        rs[mod]= rsl
         
     
-    txt=""
+    txt=[]
     for key, value in rs.items():
         
-        txt_temp= str(key)+ str(value)
-        txt=txt+txt_temp+"\n"
-        
+        txt_temp= str(key)+" ----> "+ str(value)
+        txt.append( txt_temp)
         
   
     return render_template('index.html', pred=txt)
    
-    
    
-
-
-
 if __name__ == '__main__':
     app.run()
 
