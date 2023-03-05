@@ -49,8 +49,6 @@ def create_path():
     return(path,path_fig,path_models)
     
     
-    
-
 def data_load():
     X, y=load_breast_cancer(return_X_y=True, as_frame=True)
     
@@ -88,9 +86,6 @@ def train( X_train_scaled, X_test, y_train, y_test, dict_stat, models,params,pat
             dump(clf.best_estimator_, path_models+"/"+names[i ]+"_"+score+".joblib") 
             #sco=sco.append(sco_temp,ignore_index=True)
         i=i+1
-
-
-
 
 def main():
     
@@ -218,14 +213,4 @@ def main():
     names=["Logistic_regression", "Linear_SVC","SGD_classifier","KNN","Decision_tree"]
     
     train(X_train_scaled, X_test, y_train, y_test, dict_stat, models,params,path_models,names)
-    
-
-    
-
-
-tps1 = time.time()
-main()
-tps2 = time.time()
-
-print(tps2-tps1)
     
