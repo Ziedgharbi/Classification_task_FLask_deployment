@@ -22,7 +22,6 @@ import pandas as pd
 import os 
 import re 
 
-
 def create_path():
     path="C:/Users/pc/Nextcloud/Python/Flask"
     path_fig=path+'/figures'
@@ -205,4 +204,3 @@ def main():
     names=["Logistic_regression", "Linear_SVC","SGD_classifier","KNN","Decision_tree"]
     
     train(X_train_scaled, X_test, y_train, y_test, dict_stat, models,params,path_models,names)
-    
