@@ -1,5 +1,3 @@
-
-
 import time
 
 from numba import jit, cuda
@@ -23,7 +21,6 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 import os 
 import re 
-
 
 
 def create_path():
