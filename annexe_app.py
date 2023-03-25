@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 23 10:14:33 2023
 
-@author: pc
-"""
 
 import time
 
