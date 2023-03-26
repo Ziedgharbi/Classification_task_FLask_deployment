@@ -192,7 +192,6 @@ def main():
             'algorithm' : ['auto', 'ball_tree', 'kd_tree', 'brute'],
            }
     
-    
     model5=DecisionTreeClassifier()
     param5={'criterion' : ['gini', 'entropy', 'log_loss'] 
            }
