@@ -163,7 +163,6 @@ def main():
     variable_final=pd.merge(temp, variable_non_sign_kru)
     variable_final=list(variable_final['Variable'])
 
-
     X=X[variable_final]
     
     X_train_scaled, X_test, y_train, y_test, dict_stat=split(X,y)
