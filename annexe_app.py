@@ -39,12 +39,10 @@ def create_path():
     
     return(path,path_fig,path_models)
     
-    
 def data_load():
     X, y=load_breast_cancer(return_X_y=True, as_frame=True)
     
     return(X,pd.DataFrame(y))
-
 
 def split (X,y):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
@@ -59,7 +57,6 @@ def split (X,y):
                'x_std':x_std}
     
     return(X_train_scaled, X_test, y_train, y_test, dict_stat)
-
 
 @jit
 def train( X_train_scaled, X_test, y_train, y_test, dict_stat, models,params,path_models,names):
@@ -81,8 +78,7 @@ def train( X_train_scaled, X_test, y_train, y_test, dict_stat, models,params,pat
 def main():
     
     path,path_fig,path_models=create_path()
-    
-    
+       
     X,y=data_load()
     
     X.describe()
@@ -117,7 +113,6 @@ def main():
     y.value_counts().plot.pie()
     plt.savefig(path_fig+"/target.png")
 
-
     ### dependency between features and target variable : anova analaysis ####
 
     """ first approach : test point biserial test but first we need to check normality"""
@@ -147,7 +142,6 @@ def main():
         rslt=rslt.append(rslt_temp, ignore_index=True)
     
     variable_non_sign = rslt[rslt["p_value"]<=0.05]["Variable"]
-
 
     """ third approach :  Kruskal-Wallis test """
     rslt=pd.DataFrame(data=None, columns= ["Variable", "p_value"])
@@ -186,7 +180,6 @@ def main():
             'fit_intercept' :[True, False] 
            }
     
- 
     model4=KNeighborsClassifier()
     param4={'n_neighbors' : [1,2,3,4,5,6,7,8,9],
             'algorithm' : ['auto', 'ball_tree', 'kd_tree', 'brute'],
