@@ -27,7 +27,6 @@ def create_path():
     path_fig=path+'/figures'
     path_models=path+'/models'
 
-
     isExist = os.path.exists(path_fig)
     if not isExist:
         # Create a new directory because it does not exist
