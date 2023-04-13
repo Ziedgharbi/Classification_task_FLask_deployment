@@ -50,7 +50,6 @@ def split (X,y):
     x_std =X_train.std(axis=0)
     
     X_train_scaled= (X_train - x_mean)/x_std
-       
     
     dict_stat={"x_mean": x_mean,
                'x_std':x_std}
