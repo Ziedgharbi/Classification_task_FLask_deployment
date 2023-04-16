@@ -128,7 +128,6 @@ def main():
     
     variable_corr_non= rslt[rslt["p_value"]<=0.05]["Variable"]
 
-
     """ second approach : test significativity for logistic regression coefficient """
     rslt=pd.DataFrame(data=None, columns= ["Variable", "p_value"])
     for col in X.columns:
