@@ -17,7 +17,6 @@ from numba import jit, cuda
 import os 
 import re 
 
-
 import sys
 
 project_root="C:/Users/pc/Nextcloud/Python/Flask"
@@ -38,8 +37,6 @@ app=Flask(__name__,template_folder=project_root,static_folder=project_root+"/tes
 @app.route('/')
 def home():
     return render_template('index.html')
-
-
 
 @app.route("/" , methods=["POST"])
 def predict():
