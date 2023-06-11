@@ -16,7 +16,6 @@ from numba import jit, cuda
 
 import os 
 import re 
-
 import sys
 
 project_root="C:/Users/pc/Nextcloud/Python/Flask"
